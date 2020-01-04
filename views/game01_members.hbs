@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h1>Game 01</h1>
+		<h2>User: <span id="username_game01">{{ output }}</span></h2>
+		<div id="user_join_game01"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-4">
+		<div class="user_list" id="user_list_game01">
+			<div class="header">Users</div>
+			<ul></ul>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div id="game01"></div>
+		<p id="game01_winner"></p>
+	</div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="../assets/scripts/game01_users.js"></script>

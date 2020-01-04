@@ -1,0 +1,80 @@
+<div class="row">
+	<div class="col-sm-12">
+		<script>console.log('Weather page');</script>		
+		<h1>Weather</h1>
+		<h2>
+			<span id="weather_country">{{ weather_country }}</span>
+			<span id="weather_city">{{ weather_city }}</span>
+		</h2>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div id="weatherContainer"></div>
+	</div>
+</div>
+
+<div class="row" style="margin-top:20px;">
+	<div class="col-sm-12">
+		
+		<form id="weather_form" method="post" action="/weather/submit">		  
+			<select id="country" name="country">
+				<option value="" disabled selected>Select country</option>
+				<option value="country01">country01</option>
+				<option value="country02">country02</option>
+				<option value="country03">country03</option>
+				<option value="country04">country04</option>
+			</select>
+			<select id="city" name="city">
+				<option value="" disabled selected>Select city</option>
+				<option value="city01">city01</option>
+				<option value="city02">city02</option>
+				<option value="city03">city03</option>
+				<option value="city04">city04</option>
+			</select>
+		  <input type="submit" value="Submit">
+		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<p id="geolocation"></p>
+	</div>
+</div>
+
+<div id="weather_obj" weather_obj="{{ weather_obj }}"></div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script>
+	var site_url = window.location.href;	
+	
+	getData(site_url);
+	
+	function getData(site_url){
+		var country = $('h2 span').eq(0).text();
+		var city = $('h2 span').eq(1).text();
+		console.warn('site_url', site_url, country, city);
+		
+		if(site_url == "http://localhost:3000/weather"){
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.src = "../assets/scripts/weather.js";
+			s.innerHTML = null;
+			s.id = "widget";		
+			document.body.appendChild(s);
+		} else {
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.src = "../../../assets/scripts/weather.js";
+			s.innerHTML = null;
+			s.id = "widget";		
+			document.body.appendChild(s);
+		}
+		
+		
+	}
+</script>
+
